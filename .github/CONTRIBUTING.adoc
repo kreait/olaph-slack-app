@@ -1,0 +1,30 @@
+== Contribution Guidelines
+
+Olaph Slack App is released under the https://github.com/olaph-io/slack-app/blob/main/LICENSE[MIT license].
+These guidelines are here to help you getting started contributing to this project.
+
+=== Code of Conduct
+
+Please read and follow our https://github.com/olaph-io/slack-app/blob/main/CODE_OF_CONDUCT.md[Code of Conduct] before contributing to the project.
+By contributing we expect you to follow the this code of conduct and furthermore advise you to report any misbehaviour you encounter to the maintainers.
+
+=== Contact
+
+Feel free to join us on discord to discuss image:https://img.shields.io/discord/523866370778333184.svg[link="https://discord.gg/fXfQmdJ"]
+
+=== Missing Feature
+
+If you are missing a feature, you can create an issue, stating which feature is missing and please reference the according https://api.slack.com/[Slack Api Documentation^] entry.
+
+==== Code Conventions
+
+These guidelines will help to improve the process of reviewing contributions.
+
+- We endorse readable and formatted code. The default formatting options provided by IDEs like IntelliJ, Netbeans and Eclipse
+are sufficient in most cases. If you are creating non-trivial pull requests please make sure your code is well documented.
+
+- This will help us to better read your code and follow your intentions you are trying to achieve.
+
+- Regular rebasing of your branch against the current main branch would also help a lot (or the target branch you're building upon).
+
+- When writing commit messages please follow the style we used in previous ones (you can take a look at existing pull-requests for that).

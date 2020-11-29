@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.edit.select
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.dto.CreateDialogSubmission
 import com.kreait.bots.agile.domain.slack.standupDefinition.edit.Callback
@@ -16,6 +17,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class SelectStandupReceiverTest : InteractiveComponentReceiverTest {
 
     @DisplayName("")

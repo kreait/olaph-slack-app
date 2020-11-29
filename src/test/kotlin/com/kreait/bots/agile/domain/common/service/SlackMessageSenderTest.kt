@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.common.service
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.response.RandomResponseProvider
 import com.kreait.bots.agile.domain.response.ResponseType
 import com.kreait.slack.api.contract.jackson.group.chat.ErrorPostEphemeralResponse
@@ -19,6 +20,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class SlackMessageSenderTest {
     private lateinit var userChannelIdService: UserChannelIdService
     private lateinit var randomResponseProvider: RandomResponseProvider

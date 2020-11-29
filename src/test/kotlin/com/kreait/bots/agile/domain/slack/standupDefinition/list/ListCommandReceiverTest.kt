@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.list
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.SlashCommandTest
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class ListCommandReceiverTest : SlashCommandTest {
 
     @DisplayName("Test List-Command Receiver")

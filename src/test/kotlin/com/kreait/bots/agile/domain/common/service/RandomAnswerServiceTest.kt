@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.common.service
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.response.ResponseType
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class RandomAnswerServiceTest {
 
     private lateinit var randomAnswerService: RandomAnswerService

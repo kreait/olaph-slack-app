@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.open
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.Callback
 import com.kreait.slack.api.contract.jackson.InteractiveComponentResponse
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class LeaveCommandSubmissionReceiverTest : InteractiveComponentReceiverTest {
 
     @DisplayName("test supports Leave submission")

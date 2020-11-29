@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup.reminder
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.domain.common.data.Standup
 import com.kreait.bots.agile.domain.common.service.MessageContext
@@ -17,6 +18,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.context.support.MessageSourceAccessor
 
+@UnitTest
 class ReminderMessageSenderTest {
 
     @DisplayName("Test RemindermessageSender")

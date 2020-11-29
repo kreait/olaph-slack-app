@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.delete.help
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.slack.api.contract.jackson.SlackCommand
 import com.kreait.slack.api.contract.jackson.group.chat.ErrorPostEphemeralResponse
 import com.kreait.slack.api.contract.jackson.group.chat.PostEphemeralRequest
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class SlackDeletionHelpMessageServiceTests {
 
     @DisplayName("Test delete help-message service")

@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.edit
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.SlashCommandTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.edit.EditSlashCommandReceiver
 import com.kreait.bots.agile.domain.slack.standupDefinition.edit.select.PostEditStandupSelectionService
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class EditSlashCommandReceiverUnitTest : SlashCommandTest {
 
     @DisplayName("Test Supports Slash Command")

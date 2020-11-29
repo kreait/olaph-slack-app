@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.delete.dialog.submission
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
 import com.kreait.slack.api.contract.jackson.InteractiveMessage
 import com.kreait.slack.api.contract.jackson.sample
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class DeleteDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
 
     private lateinit var component: InteractiveMessage

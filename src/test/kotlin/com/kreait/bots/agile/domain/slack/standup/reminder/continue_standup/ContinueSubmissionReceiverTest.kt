@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup.reminder.continue_standup
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
 import com.kreait.bots.agile.domain.slack.standup.reminder.ReminderService
 import com.kreait.slack.api.contract.jackson.Channel
@@ -20,6 +21,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 @DisplayName("Test Continue Submission")
 class ContinueSubmissionReceiverTest : InteractiveComponentReceiverTest {
 

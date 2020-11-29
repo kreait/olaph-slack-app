@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.delete
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.SlashCommandTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.delete.DeleteSlashCommandReceiver
 import com.kreait.bots.agile.domain.slack.standupDefinition.delete.dialog.open.DeleteSlashCommandHandler
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class DeleteSlashCommandReceiverTest : SlashCommandTest {
 
     @DisplayName("Test supports delete-command")

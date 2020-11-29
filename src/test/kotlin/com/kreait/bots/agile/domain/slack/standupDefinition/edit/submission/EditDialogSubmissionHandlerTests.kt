@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.edit.submission
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
 import com.kreait.bots.agile.domain.common.data.StandupDefinitionRepository
@@ -23,6 +24,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class EditDialogSubmissionHandlerTests {
 
     @DisplayName("Test Edit Dialog Submission   ")
@@ -35,19 +37,24 @@ class EditDialogSubmissionHandlerTests {
             on { save(any<StandupDefinition>()) } doReturn StandupDefinition.sample().copy(id = "persisted")
         }
         val conversationService = mock<ConversationService>()
-        val editDialogSubmissionHandler = EditDialogSubmissionHandler(slackClient, standupDefinitionRepository,
-                conversationService, mock(), mock(), mock())
+        val editDialogSubmissionHandler = EditDialogSubmissionHandler(
+            slackClient, standupDefinitionRepository,
+            conversationService, mock(), mock(), mock()
+        )
 
         val component = InteractiveMessage.sample().copy(
-                submission = mapOf(Pair(CreateDialogSubmission.NAME, "Workspace"),
-                        Pair(CreateDialogSubmission.DAYS, "mon"),
-                        Pair(CreateDialogSubmission.TIME, "13:30"),
-                        Pair(CreateDialogSubmission.BROADCAST_CHANNEL_ID, "channel"),
-                        Pair(CreateDialogSubmission.QUESTIONS, "what")),
-                team = InteractiveComponentResponse.Team.sample().copy("sampleTeam"),
-                user = User.sample().copy("sampleUserId"),
-                callbackId = Callback.EDIT_DIALOG.id,
-                responseUrl = "")
+            submission = mapOf(
+                Pair(CreateDialogSubmission.NAME, "Workspace"),
+                Pair(CreateDialogSubmission.DAYS, "mon"),
+                Pair(CreateDialogSubmission.TIME, "13:30"),
+                Pair(CreateDialogSubmission.BROADCAST_CHANNEL_ID, "channel"),
+                Pair(CreateDialogSubmission.QUESTIONS, "what")
+            ),
+            team = InteractiveComponentResponse.Team.sample().copy("sampleTeam"),
+            user = User.sample().copy("sampleUserId"),
+            callbackId = Callback.EDIT_DIALOG.id,
+            responseUrl = ""
+        )
 
         editDialogSubmissionHandler.handleEditDialogSubmission(CreateDialogSubmission.of(component.submission!!), component, "")
         val expectedParam = InfoRequest.sample().copy("sampleUserId", true)

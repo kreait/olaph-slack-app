@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.open
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.Action
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.Callback
 import com.nhaarman.mockitokotlin2.any
@@ -19,6 +20,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.context.support.MessageSourceAccessor
 import java.util.Locale
 
+@UnitTest
 class LeaveDialogOpeningServiceTest {
 
     @DisplayName("Test Leave-Dialog opening service")

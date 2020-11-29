@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.list
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
 import com.kreait.bots.agile.domain.common.data.StandupDefinitionRepository
@@ -23,6 +24,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
 
+@UnitTest
 class ListStandupsServiceTest {
 
     @DisplayName("Test List Standups service")

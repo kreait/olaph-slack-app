@@ -86,6 +86,20 @@ test {
     useJUnitPlatform()
 }
 
+
+def test = tasks.named("test") {
+    useJUnitPlatform {
+        excludeTags "integration"
+    }
+}
+
+def integrationTest = tasks.register("unitTest", Test) {
+    useJUnitPlatform {
+        includeTags "Unit"
+    }
+    shouldRunAfter test
+}
+
 repositories {
     maven { url "https://libs.olaph.io" }
     mavenCentral()

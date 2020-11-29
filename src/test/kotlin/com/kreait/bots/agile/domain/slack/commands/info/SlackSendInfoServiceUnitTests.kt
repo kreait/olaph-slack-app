@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.info
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.common.service.MessageContext
 import com.kreait.bots.agile.domain.common.service.SlackMessageSender
 import com.kreait.bots.agile.domain.slack.info.SlackSendInfoService
@@ -13,7 +14,7 @@ import com.nhaarman.mockitokotlin2.verify
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
-
+@UnitTest
 class SlackSendInfoServiceUnitTests {
 
 

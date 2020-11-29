@@ -30,4 +30,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Unit Test
         run: |
-          ./gradlew clean test --info --refresh-dependencies
+          ./gradlew clean unitTest --info --refresh-dependencies

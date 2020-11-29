@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup.trigger
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standup.create.StandupCreationService
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.core.standup.question.QuestionService
@@ -22,6 +23,7 @@ import com.nhaarman.mockitokotlin2.verify
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class TriggerSubmissionHandlerTest {
 
     @DisplayName("Test Trigger Submission Handler")

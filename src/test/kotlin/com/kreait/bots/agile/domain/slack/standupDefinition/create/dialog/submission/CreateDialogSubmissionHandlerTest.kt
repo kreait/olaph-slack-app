@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.submission
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
 import com.kreait.bots.agile.domain.common.data.StandupDefinitionRepository
@@ -29,6 +30,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class CreateDialogSubmissionHandlerTest {
 
     @DisplayName("Test Successful Dialog submission Handler")

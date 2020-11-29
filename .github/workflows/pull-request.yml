@@ -14,17 +14,17 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   tests:
-    name: Unit Tests
+    name: "Unit Tests"
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     container: openjdk:8-jdk
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Git Checkout
+      - name: "git checkout"
       - uses: actions/checkout@v2
 
       # Runs a set of commands using the runners shell
-      - name: Unit Test
+      - name: "Unit Test"
         run: |
           ./gradlew clean test

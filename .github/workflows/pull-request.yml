@@ -20,8 +20,9 @@ jobs:
     services:
       mongo:
         image: mongo:4.2.11
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+        ports:
+          - 27017:27017
+          # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2

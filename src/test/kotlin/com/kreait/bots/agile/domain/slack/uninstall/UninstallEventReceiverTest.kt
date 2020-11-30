@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.uninstall
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.core.standupdefinition.sample
@@ -25,8 +26,8 @@ import org.springframework.http.HttpHeaders
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.time.Instant
 
-@ExtendWith(SpringExtension::class)
 @SpringBootTest(classes = [TestApplication::class])
+@IntegrationTest
 class UninstallEventReceiverTest @Autowired constructor(private val slackTeamRepository: SlackTeamRepository,
                                                         private val standupDefinitionRepository: StandupDefinitionRepository,
                                                         private val standupRepository: StandupRepository) : SlackEventTest {

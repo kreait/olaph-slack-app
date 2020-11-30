@@ -82,22 +82,16 @@ bootRun {
     systemProperties System.properties
 }
 
-test {
-    useJUnitPlatform()
-}
-
-
-def test = tasks.named("test") {
-    useJUnitPlatform {
-        excludeTags "integration"
-    }
-}
-
-def integrationTest = tasks.register("unitTest", Test) {
+tasks.register("unitTest", Test) {
     useJUnitPlatform {
         includeTags "Unit"
     }
-    shouldRunAfter test
+}
+
+tasks.register("integrationTest", Test) {
+    useJUnitPlatform {
+        includeTags "Integration"
+    }
 }
 
 repositories {

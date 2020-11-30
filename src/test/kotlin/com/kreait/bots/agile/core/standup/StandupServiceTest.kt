@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.core.standup
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.core.standup.common.example
 import com.kreait.bots.agile.domain.common.data.Standup
@@ -17,9 +18,9 @@ import org.springframework.test.context.TestPropertySource
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.time.LocalDate
 
-@ExtendWith(SpringExtension::class)
 @SpringBootTest(classes = [TestApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = ["slack.token=test-token"])
+@IntegrationTest
 internal class StandupServiceTest constructor(@Autowired val standupRepository: StandupRepository) {
 
     @BeforeEach

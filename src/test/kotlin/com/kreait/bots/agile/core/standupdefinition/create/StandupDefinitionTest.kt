@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.core.standupdefinition.create
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.domain.common.data.Standup
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
@@ -17,7 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.time.DayOfWeek
 import java.time.LocalTime
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [TestApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = ["slack.token=test-token"])
 @DisplayName("TestStandupDefinition - TeamId consistency")

@@ -55,7 +55,7 @@ sonarqube {
         property "sonar.host.url", "https://sonarcloud.io/"
         property "sonar.organization", "olaph-io"
         property "sonar.jacoco.report.missing.force.zero", "true"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/test-results/*/*"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/test-results/*/*"
 
         //property "sonar.exclusions", "**/akamai/**"
     }

@@ -54,7 +54,9 @@ sonarqube {
         property "sonar.projectKey", "olaph-io_slack-app"
         property "sonar.host.url", "https://sonarcloud.io/"
         property "sonar.organization", "olaph-io"
-        property "sonar.jacoco.report missing.force.zero", "true"
+        property "sonar.jacoco.report.missing.force.zero", "true"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/test-results/*/*"
+
         //property "sonar.exclusions", "**/akamai/**"
     }
 }

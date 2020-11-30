@@ -51,10 +51,10 @@ compileTestKotlin {
 
 sonarqube {
     properties {
-        property "sonar.projectName", "Agile Bot"
-        property "sonar.projectKey", "com.kreait.bots.slack.agile"
+        property "sonar.projectName", "Olaph Slack App"
+        property "sonar.projectKey", "io.olaph.slack-app"
         property "sonar.host.url", "https://sonarcloud.io/"
-        property "sonar.organization", "kreait"
+        property "sonar.organization", "olaph-io"
         property "sonar.jacoco.report missing.force.zero", "true"
         //property "sonar.exclusions", "**/akamai/**"
     }

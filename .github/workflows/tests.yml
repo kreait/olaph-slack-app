@@ -49,7 +49,7 @@ jobs:
 
       - name: Unit Test
         run: |
-          ./gradlew unitTest
+          ./gradlew unitTest jacocoTestReport
 
       - name: Integration Test
         env:
@@ -62,4 +62,10 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
         run: |
-          ./gradlew integrationTest --info -Dcloud.aws.endpoint=$AWS_ENDPOINT -Dcloud.aws.credentials.accessKey=$AWS_ACCESS_KEY_ID -Dcloud.aws.credentials.secretKey=$AWS_SECRET_ACCESS_KEY -Dcloud.aws.region.static=$AWS_REGION
+          ./gradlew integrationTest jacocoTestReport -Dcloud.aws.endpoint=$AWS_ENDPOINT -Dcloud.aws.credentials.accessKey=$AWS_ACCESS_KEY_ID -Dcloud.aws.credentials.secretKey=$AWS_SECRET_ACCESS_KEY -Dcloud.aws.region.static=$AWS_REGION
+
+      - name: Sonarcloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN

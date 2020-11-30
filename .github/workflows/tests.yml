@@ -30,16 +30,35 @@ jobs:
         with:
           java-version: '8'
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: eu-central-1
+
+      - name: Setup Build Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Unit Test
         run: |
-          ./gradlew clean unitTest --info --refresh-dependencies
+          ./gradlew unitTest
 
       - name: Integration Test
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SLACK_APP_CLIENT_ID: ${{ secrets.SLACK_APP_CLIENT_ID }}
           SLACK_APP_CLIENT_SECRET: ${{ secrets.SLACK_APP_CLIENT_SECRET }}
           SLACK_APP_SIGNING_SECRET: ${{ secrets.SLACK_APP_SIGNING_SECRET }}
         run: |
-          ./gradlew clean integrationTest --info --refresh-dependencies
+          ./gradlew integrationTest
+
+      - name: Sonarcloud
+        run: |
+          ./gradlew integrationTest

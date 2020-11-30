@@ -95,11 +95,7 @@ tasks.register("integrationTest", Test) {
 }
 
 repositories {
-    maven { url "https://libs.olaph.io" }
     mavenCentral()
-    maven {
-        url "https://oss.sonatype.org/content/repositories/comkreaitslack-1032"
-    }
 }
 
 dependencies {

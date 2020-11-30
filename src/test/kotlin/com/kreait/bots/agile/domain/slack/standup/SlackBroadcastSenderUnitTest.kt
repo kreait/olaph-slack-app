@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.common.service.UserChannelIdService
 import com.kreait.bots.agile.domain.common.service.UserService
 import com.kreait.bots.agile.domain.response.ResponseType
@@ -20,6 +21,7 @@ import org.springframework.context.support.MessageSourceAccessor
 import java.time.LocalDate
 import java.util.Locale
 
+@UnitTest
 class SlackBroadcastSenderUnitTest() {
     private lateinit var message: MessageSourceAccessor
     private lateinit var user: Member

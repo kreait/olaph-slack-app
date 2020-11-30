@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.core.standup.open
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.core.standup.common.example
 import com.kreait.bots.agile.core.standup.data.repository.sample
@@ -28,7 +29,7 @@ import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [TestApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = ["slack.token=test-token"])
 internal class StandupOpeningServiceTest @Autowired constructor(private val standupRepository: StandupRepository) {

@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.common.service
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.slack.api.contract.jackson.group.users.ErrorConversationsResponse
 import com.kreait.slack.api.contract.jackson.group.users.ErrorInfoResponse
 import com.kreait.slack.api.contract.jackson.group.users.ErrorListResponse
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class UserServiceUnitTest {
 
     @DisplayName("Test Successful User")

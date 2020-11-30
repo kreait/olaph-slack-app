@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.create.help
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.slack.api.test.MockSlackClient
 import com.kreait.slack.api.contract.jackson.SlackCommand
 import com.kreait.slack.api.contract.jackson.group.chat.ErrorPostEphemeralResponse
@@ -9,6 +10,7 @@ import com.kreait.slack.api.contract.jackson.sample
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class SlackCreationHelpMessageServiceTest {
 
     @DisplayName("Test successful help message sender")

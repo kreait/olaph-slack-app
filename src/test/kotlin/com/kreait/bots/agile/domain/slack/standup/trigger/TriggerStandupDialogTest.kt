@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup.trigger
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.domain.common.data.Standup
@@ -28,7 +29,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.time.LocalDate
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [TestApplication::class])
 class TriggerStandupDialogTest @Autowired constructor(private val standupRepository: StandupRepository) {
 

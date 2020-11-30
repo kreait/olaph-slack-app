@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.edit
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
 import com.kreait.bots.agile.domain.slack.standupDefinition.DialogOptionService
@@ -23,6 +24,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.util.Locale
 
+@UnitTest
 class EditDialogOpeningServiceUnitTest {
 
     @DisplayName("Failure EditDialog opening Test")

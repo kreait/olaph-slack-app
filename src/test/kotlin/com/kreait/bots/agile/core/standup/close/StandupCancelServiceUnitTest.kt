@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.core.standup.close
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.domain.common.data.Standup
@@ -9,16 +10,14 @@ import com.nhaarman.mockitokotlin2.mock
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.TestPropertySource
-import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.time.Duration
 import java.time.Instant
 
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [TestApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = ["slack.token=test-token"])
 class StandupCancelServiceUnitTest @Autowired constructor(private val standupRepository: StandupRepository) {

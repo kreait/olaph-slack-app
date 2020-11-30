@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.create
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.SlashCommandTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.CreateSlashCommandReceiver
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.open.CreateDialogOpeningService
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class CreateSlashCommandReceiverUnitTest : SlashCommandTest {
 
     @DisplayName("Test Receive Slashcommand")

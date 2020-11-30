@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.leave
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.MemberLeftMessageSender
@@ -19,6 +20,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.util.Locale
 
+@UnitTest
 class MemberLeftMessageSenderUnitTests {
 
     private val userId = "SampleUserID"

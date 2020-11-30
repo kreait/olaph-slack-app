@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.info
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.SlashCommandTest
 import com.kreait.bots.agile.domain.slack.info.OlaphSlashCommandReceiver
 import com.kreait.bots.agile.domain.slack.info.SlackSendInfoService
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class OlaphSlashCommandReceiverUnitTests : SlashCommandTest {
 
 

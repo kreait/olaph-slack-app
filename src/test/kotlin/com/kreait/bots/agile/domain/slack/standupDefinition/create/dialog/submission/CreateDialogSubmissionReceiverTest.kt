@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.submission
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.Callback
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.dto.CreateDialogSubmission
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class CreateDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
 
     @DisplayName("Test supportsInteractiveMessage")

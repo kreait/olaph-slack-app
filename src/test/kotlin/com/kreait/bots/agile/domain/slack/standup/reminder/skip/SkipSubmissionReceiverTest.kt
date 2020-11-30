@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup.reminder.skip
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standup.open.StandupOpeningService
 import com.kreait.bots.agile.domain.common.data.StandupRepository
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
@@ -25,6 +26,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class SkipSubmissionReceiverTest : InteractiveComponentReceiverTest {
 
     @DisplayName("test supportsInteractiveMessage")

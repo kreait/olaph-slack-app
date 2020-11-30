@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.integration
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.domain.common.data.RandomResponses
 import com.kreait.bots.agile.domain.response.AddRandomResponsesRequest
@@ -16,7 +17,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [(TestApplication::class)], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DisplayName("Random Response Controller Tests")
 class RandomResponseIntegrationTest(@Value("\${authentication.key}") private val authKey: String) {

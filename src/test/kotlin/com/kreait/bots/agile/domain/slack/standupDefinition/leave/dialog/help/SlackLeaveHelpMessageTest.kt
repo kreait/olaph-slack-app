@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.help
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.slack.api.contract.jackson.SlackCommand
 import com.kreait.slack.api.contract.jackson.group.chat.PostEphemeralRequest
 import com.kreait.slack.api.contract.jackson.group.chat.SuccessfulPostEphemeralResponse
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class SlackLeaveHelpMessageTest {
 
     @DisplayName("Test Help message test")

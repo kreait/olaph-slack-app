@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standup.answer.StandupAnswerReceiver
 import com.kreait.bots.agile.domain.slack.SlackEventTest
 import com.nhaarman.mockitokotlin2.mock
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class SlackAnswerReceiverTest : SlackEventTest {
     @DisplayName("Test Supports event")
     @Test

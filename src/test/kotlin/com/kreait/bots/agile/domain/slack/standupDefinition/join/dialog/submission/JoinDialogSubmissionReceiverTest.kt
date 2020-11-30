@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.join.dialog.submission
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.InteractiveComponentReceiverTest
 import com.kreait.bots.agile.domain.slack.standupDefinition.join.dialog.Action
 import com.kreait.bots.agile.domain.slack.standupDefinition.join.dialog.Callback
@@ -13,14 +14,17 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class JoinDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
 
     @DisplayName("")
     @Test
     override fun supportsInteractiveMessage() {
-        val component = InteractiveMessage.sample().copy(submission = mapOf(Pair(Action.SELECTED_STANDUP.id, "sampleStandup")),
-                team = InteractiveComponentResponse.Team.sample().copy(id = "sampleTeam"),
-                callbackId = Callback.JOIN_DIALOG.id)
+        val component = InteractiveMessage.sample().copy(
+            submission = mapOf(Pair(Action.SELECTED_STANDUP.id, "sampleStandup")),
+            team = InteractiveComponentResponse.Team.sample().copy(id = "sampleTeam"),
+            callbackId = Callback.JOIN_DIALOG.id
+        )
 
         val joinDialogSubmissionReceiver = JoinDialogSubmissionReceiver(mock())
         joinDialogSubmissionReceiver.supportsInteractiveMessage(component)
@@ -28,9 +32,10 @@ class JoinDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
 
     override fun onReceiveInteractiveMessage() {
         val component = InteractiveMessage.sample().copy(
-                submission = mapOf(Pair(Action.SELECTED_STANDUP.id, "sampleStandup")),
-                team = InteractiveComponentResponse.Team.sample().copy("sampleTeam"),
-                callbackId = Callback.JOIN_DIALOG.id)
+            submission = mapOf(Pair(Action.SELECTED_STANDUP.id, "sampleStandup")),
+            team = InteractiveComponentResponse.Team.sample().copy("sampleTeam"),
+            callbackId = Callback.JOIN_DIALOG.id
+        )
 
         val joinDialogSubmissionHandler = mock<JoinDialogSubmissionHandler>()
         val joinDialogSubmissionReceiver = JoinDialogSubmissionReceiver(joinDialogSubmissionHandler)

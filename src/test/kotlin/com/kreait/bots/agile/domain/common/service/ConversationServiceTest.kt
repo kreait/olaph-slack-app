@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.common.service
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.slack.api.contract.jackson.ChannelType
 import com.kreait.slack.api.contract.jackson.common.types.Conversation
 import com.kreait.slack.api.contract.jackson.common.types.Member
@@ -17,6 +18,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 class ConversationServiceTest {
 
     @DisplayName("Test Conversation Service")

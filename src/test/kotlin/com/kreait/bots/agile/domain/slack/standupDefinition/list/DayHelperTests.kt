@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.list
 
+import com.kreait.bots.agile.UnitTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -9,6 +10,7 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 
 
+@UnitTest
 @DisplayName("Dayhelper Tests")
 class DayHelperTests {
 

@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.core.standup.data.repository
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.core.standup.common.example
 import com.kreait.bots.agile.domain.common.data.Standup
@@ -22,8 +23,8 @@ import java.time.LocalTime
 import java.util.*
 import java.util.stream.IntStream
 
+@IntegrationTest
 @DisplayName("StandupRepository Tests")
-@ExtendWith(SpringExtension::class)
 @SpringBootTest(classes = [TestApplication::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StandupRepositoryTests(@Autowired private val standupRepository: StandupRepository) {
 

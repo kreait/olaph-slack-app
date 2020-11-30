@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.standup
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.domain.common.data.Standup
 import com.kreait.bots.agile.domain.common.service.MessageContext
@@ -20,8 +21,8 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
-
-class SlackOpeningMessageSenderTest() {
+@UnitTest
+class SlackOpeningMessageSenderTest {
 
     private lateinit var randomResponseProvider: RandomResponseProvider
     private lateinit var userChannelIdService: UserChannelIdService

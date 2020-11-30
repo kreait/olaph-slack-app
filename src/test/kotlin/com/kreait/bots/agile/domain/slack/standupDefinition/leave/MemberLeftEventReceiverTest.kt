@@ -3,6 +3,7 @@ package com.kreait.bots.agile.domain.slack.standupDefinition.leave
 //TODO should this package be located in the slack package or here in standupDefinition?
 
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.core.standup.data.repository.sample
 import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.Standup
@@ -24,6 +25,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.data.mongodb.core.query.Update
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class MemberLeftEventReceiverTest : SlackEventTest {
 
     @Test

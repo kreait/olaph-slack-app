@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.response
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import com.kreait.bots.agile.domain.common.data.RandomResponses
 import com.kreait.bots.agile.domain.common.data.RandomResponsesRepository
@@ -16,7 +17,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [(TestApplication::class)], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DisplayName("Random Response Endpoint Tests")
 class RandomResponseEndpointTests @Autowired constructor(private val randomResponsesRepository: RandomResponsesRepository) {

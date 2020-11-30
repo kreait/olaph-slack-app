@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.slack.commands.commands
 
+import com.kreait.bots.agile.UnitTest
 import com.kreait.bots.agile.domain.slack.SlashCommandTest
 import com.kreait.bots.agile.domain.slack.standup.trigger.SlackTriggerCommandReceiver
 import com.kreait.bots.agile.domain.slack.standup.trigger.TriggerStandupDialog
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpHeaders
 
+@UnitTest
 class TriggerStandupTest : SlashCommandTest {
 
     @DisplayName("Test supports trigger-command")

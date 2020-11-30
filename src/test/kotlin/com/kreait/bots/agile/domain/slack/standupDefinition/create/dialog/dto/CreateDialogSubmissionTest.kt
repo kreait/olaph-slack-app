@@ -1,9 +1,11 @@
 package com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.dto
 
+import com.kreait.bots.agile.UnitTest
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@UnitTest
 internal class CreateDialogSubmissionTest {
 
     @DisplayName("Test DaysInput")

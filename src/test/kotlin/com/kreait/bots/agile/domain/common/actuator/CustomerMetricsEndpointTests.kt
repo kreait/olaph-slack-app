@@ -1,5 +1,6 @@
 package com.kreait.bots.agile.domain.common.actuator
 
+import com.kreait.bots.agile.IntegrationTest
 import com.kreait.bots.agile.TestApplication
 import io.restassured.RestAssured
 import org.junit.jupiter.api.DisplayName
@@ -12,7 +13,7 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
-@ExtendWith(SpringExtension::class)
+@IntegrationTest
 @SpringBootTest(classes = [(TestApplication::class)], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DisplayName("Customer Metrics Endpoint Tests")
 internal class CustomerMetricsEndpointTests {

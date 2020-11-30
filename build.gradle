@@ -101,7 +101,6 @@ repositories {
 dependencies {
     implementation(group: "com.kreait.slack", name: "slack-spring-boot-starter", version: "${olaphVersion}", changing: true)
     implementation(group: "com.kreait.slack", name: "slack-spring-api-client", version: "${olaphVersion}", changing: true)
-    implementation(group: "com.kreait.bots.olaph", name: "jackson", version: olaphDtoVersion)
 
     implementation(group: "org.springframework.boot", name: "spring-boot-starter-web")
     implementation(group: "org.springframework.boot", name: "spring-boot-starter-data-mongodb")
@@ -119,9 +118,6 @@ dependencies {
     implementation(group: "org.springframework.cloud", name: "spring-cloud-starter-aws-messaging", version: "2.0.0.RELEASE")
     implementation(group: "org.springframework.cloud", name: "spring-cloud-starter-aws", version: "2.0.0.RELEASE")
     implementation(group: "io.micrometer", name: "micrometer-registry-cloudwatch")
-
-
-    testImplementation(group: "com.kreait.bots.olaph", name: "jackson-test", version: olaphDtoVersion)
 
     testImplementation(group: "com.kreait.slack", name: "slack-spring-test-api-client", version: "${olaphVersion}")
     testImplementation(group: "com.kreait.slack", name: "slack-jackson-dto-test", version: "${olaphVersion}")

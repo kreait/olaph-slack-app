@@ -57,8 +57,4 @@ jobs:
           SLACK_APP_CLIENT_SECRET: ${{ secrets.SLACK_APP_CLIENT_SECRET }}
           SLACK_APP_SIGNING_SECRET: ${{ secrets.SLACK_APP_SIGNING_SECRET }}
         run: |
-          ./gradlew integrationTest
-
-      - name: Sonarcloud
-        run: |
-          ./gradlew integrationTest
+          ./gradlew integrationTest --info

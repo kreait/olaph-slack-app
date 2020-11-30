@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
+import org.springframework.data.mongodb.core.mapping.FieldType
+import org.springframework.data.mongodb.core.mapping.MongoId
 import java.time.DayOfWeek
 import java.time.Instant
 import java.time.LocalTime
@@ -12,7 +14,7 @@ import java.time.LocalTime
  * Object defining basic parameters of a standup
  */
 @Document(collection = StandupDefinition.COLLECTION_NAME)
-data class StandupDefinition(@Id @Field(ID) val id: String? = null,
+data class StandupDefinition(@Id val id: String? = null,
                              @Field(NAME) val name: String,
                              @Field(DAYS) val days: List<DayOfWeek>,
                              @Field(TIME) val time: LocalTime,
@@ -31,7 +33,7 @@ data class StandupDefinition(@Id @Field(ID) val id: String? = null,
     }
 
     companion object {
-        const val ID = "id"
+        const val ID = "_id"
         const val NAME = "name"
         const val DAYS = "days"
         const val TIME = "time"

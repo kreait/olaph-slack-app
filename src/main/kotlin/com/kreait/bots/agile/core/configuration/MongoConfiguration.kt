@@ -18,7 +18,7 @@ class MongoConfiguration(@Value("\${spring.data.mongodb.database}") private val 
                         LocalDateToStringConverter.INSTANCE,
                         StringToLocalDateConverter.INSTANCE,
                         InstantToStringConverter.INSTANCE,
-                        StringToInstantConverter.INSTANCE
+                        StringToInstantConverter.INSTANCE,
                 )
         )
 

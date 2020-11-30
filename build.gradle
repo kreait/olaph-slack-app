@@ -51,7 +51,7 @@ compileTestKotlin {
 sonarqube {
     properties {
         property "sonar.projectName", "Olaph Slack App"
-        property "sonar.projectKey", "io.olaph.slack-app"
+        property "sonar.projectKey", "olaph-io_slack-app"
         property "sonar.host.url", "https://sonarcloud.io/"
         property "sonar.organization", "olaph-io"
         property "sonar.jacoco.report missing.force.zero", "true"

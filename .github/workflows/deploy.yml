@@ -1,0 +1,35 @@
+name: Deploy
+on:
+  push:
+    tags:
+      - v*
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '15'
+
+      - name: Package
+        run: |
+          ./gradlew bootJar
+
+      - name: Dpl to heroku
+        uses: tiagogouvea/github-dpl-action@master
+        env:
+          HEROKY_API_KEY: ${{ secrets.HEROKY_API_KEY }}
+        with:
+          provider: heroku
+          app: olaph-slack-app
+          api-key: $HEROKY_API_KEY

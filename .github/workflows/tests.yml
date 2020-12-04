@@ -51,11 +51,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Unit Test
-        run: |
-          ./gradlew unitTest jacocoTestReport
-
-      - name: Integration Test
+      - name: Tests
         env:
           SLACK_APP_CLIENT_ID: ${{ secrets.SLACK_APP_CLIENT_ID }}
           SLACK_APP_CLIENT_SECRET: ${{ secrets.SLACK_APP_CLIENT_SECRET }}
@@ -66,7 +62,7 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
 
         run: |
-          ./gradlew integrationTest jacocoTestReport -Dcloud.aws.endpoint=$AWS_ENDPOINT -Dcloud.aws.credentials.accessKey=$AWS_ACCESS_KEY_ID -Dcloud.aws.credentials.secretKey=$AWS_SECRET_ACCESS_KEY -Dcloud.aws.region.static=$AWS_REGION
+          ./gradlew test jacocoTestReport -Dcloud.aws.endpoint=$AWS_ENDPOINT -Dcloud.aws.credentials.accessKey=$AWS_ACCESS_KEY_ID -Dcloud.aws.credentials.secretKey=$AWS_SECRET_ACCESS_KEY -Dcloud.aws.region.static=$AWS_REGION
 
       - name: Sonarcloud
         env:

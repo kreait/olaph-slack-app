@@ -36,4 +36,4 @@ jobs:
           HEROKY_API_KEY: ${{ secrets.HEROKY_API_KEY }}
         run: |
           gem install dpl
-          dpl --provider=heroku --app=olaph-slack-app --api-key=$HEROKU_API_KEY
+          dpl heroku api --app olaph-slack-app --api-key $HEROKU_API_KEY

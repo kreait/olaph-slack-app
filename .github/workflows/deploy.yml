@@ -26,10 +26,7 @@ jobs:
           ./gradlew bootJar
 
       - name: Dpl to heroku
-        uses: tiagogouvea/github-dpl-action@master
         env:
           HEROKY_API_KEY: ${{ secrets.HEROKY_API_KEY }}
-        with:
-          provider: heroku
-          app: olaph-slack-app
-          api-key: $HEROKY_API_KEY
+        run: |
+          dpl --provider=heroku --app=olaph-slack-app --api-key=$HEROKU_API_KEY

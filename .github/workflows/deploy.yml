@@ -26,10 +26,12 @@ jobs:
         run: |
           ./gradlew bootJar
 
-      - name: Dpl to heroku
+      - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.6' 
+          ruby-version: '2.6'
+
+      - name: Dpl to heroku
         env:
           HEROKY_API_KEY: ${{ secrets.HEROKY_API_KEY }}
         run: |

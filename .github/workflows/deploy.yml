@@ -27,7 +27,11 @@ jobs:
           ./gradlew bootJar
 
       - name: Dpl to heroku
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6' 
         env:
           HEROKY_API_KEY: ${{ secrets.HEROKY_API_KEY }}
         run: |
+          gem install dpl
           dpl --provider=heroku --app=olaph-slack-app --api-key=$HEROKU_API_KEY

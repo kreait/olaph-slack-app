@@ -56,7 +56,6 @@ sonarqube {
         property "sonar.organization", "olaph-io"
         property "sonar.login", "f2cc9344b5efa26ca634ecf95805cdd120455967"
         property "sonar.jacoco.report.missing.force.zero", "true"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco.xml"
 
         //property "sonar.exclusions", "**/akamai/**"
     }
@@ -69,7 +68,6 @@ jacoco {
 jacocoTestReport {
     reports {
         xml.enabled true
-        xml.destination file("${buildDir}/reports/jacoco.xml")
     }
 
 }

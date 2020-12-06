@@ -24,16 +24,12 @@ jobs:
 
       - name: Package
         run: |
-          ./gradlew bootJar
-
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.6'
+          ./gradlew build -x test
 
       - name: Dpl to heroku
-        env:
-          HEROKY_API_KEY: ${{ secrets.HEROKY_API_KEY }}
-        run: |
-          gem install dpl
-          dpl heroku api --app olaph-slack-app --api-key $HEROKU_API_KEY
+        uses: akhileshns/heroku-deploy@v3.6.8
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "olaph-slack-app" #Must be unique in Heroku
+          heroku_email: "YOUR EMAIL"
+          usedocker: marvin@kreait.com

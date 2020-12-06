@@ -1,7 +1,7 @@
 name: Deploy
 on:
   push:
-    branches: [ main ]
+    branches: [ deploy-test ]
     tags:
       - v*
   # Allows you to run this workflow manually from the Actions tab
@@ -26,10 +26,7 @@ jobs:
         run: |
           ./gradlew build -x test
 
-      - name: Dpl to heroku
-        uses: akhileshns/heroku-deploy@v3.6.8
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "olaph-slack-app" #Must be unique in Heroku
-          heroku_email: "marvin@kreait.com"
-          usedocker: true
+
+      - name: Build Docker App
+        run: |
+          docker build . -f Dockerfile.app -t olaph-app:latest

@@ -34,4 +34,5 @@ jobs:
         run: |
           heroku container:login
           docker tag olaph-app:latest registry.heroku.com/olaph-slack-app/web
-          heroku container:release web
+          docker push registry.heroku.com/olaph-slack-app/web
+          heroku container:release web -a olaph-slack-app

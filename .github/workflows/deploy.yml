@@ -22,11 +22,14 @@ jobs:
         with:
           java-version: '15'
 
-      - name: Package
+      - name: Build Package
         run: |
           ./gradlew build -x test
-
-
-      - name: Build Docker App
-        run: |
           docker build . -f Dockerfile.app -t olaph-app:latest
+
+
+      - name: Push to Heroku
+        run: |
+          heroku container:login
+          docker tag olaph-app:latest registry.heroku.com/olaph-slack-app/web
+          heroku container:release web

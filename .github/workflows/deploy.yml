@@ -31,5 +31,5 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "olaph-slack-app" #Must be unique in Heroku
-          heroku_email: "YOUR EMAIL"
-          usedocker: marvin@kreait.com
+          heroku_email: "marvin@kreait.com"
+          usedocker: true

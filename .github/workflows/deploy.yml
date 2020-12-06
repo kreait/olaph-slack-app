@@ -30,6 +30,7 @@ jobs:
 
       - name: Push to Heroku
         run: |
+          heroku login
           heroku container:login
           docker tag olaph-app:latest registry.heroku.com/olaph-slack-app/web
           heroku container:release web

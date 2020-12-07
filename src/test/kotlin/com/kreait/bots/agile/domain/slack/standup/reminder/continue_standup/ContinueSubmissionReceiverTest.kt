@@ -51,7 +51,6 @@ class ContinueSubmissionReceiverTest : InteractiveComponentReceiverTest {
                 channel = Channel.sample().copy(id = ""),
                 team = InteractiveComponentResponse.Team.sample().copy(""),
                 user = User.sample()), HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("ChannelId", "", "", ""),
                 Team.Bot("", "")))
         Assertions.assertEquals(slackClient.chat().delete("").params(), expectedParam)
     }
@@ -69,7 +68,6 @@ class ContinueSubmissionReceiverTest : InteractiveComponentReceiverTest {
                 callbackId = ReminderService.REMINDER_CALLBACK, channel = Channel("sampleChannel", ""),
                 team = InteractiveComponentResponse.Team.sample().copy("sampleTeam"),
                 user = User.sample()), HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
     }
 

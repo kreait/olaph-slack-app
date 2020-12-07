@@ -30,7 +30,7 @@ class ConversationServiceTest {
         val service = ConversationService(slackClient, mock())
         val expected = ConversationsListRequest(excludeArchived = true, limit = 200, types = setOf(ChannelType.PUBLIC, ChannelType.PRIVATE))
         val response = service.conversationList("sampleTeam",
-                Team("", "", Team.IncomingWebhook("", "", "", ""),
+                Team("", "",
                         Team.Bot("", "")))
         Assertions.assertEquals(response[0].id, "")
         Assertions.assertEquals(expected, slackClient.conversation().list("").params())

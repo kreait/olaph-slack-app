@@ -40,7 +40,6 @@ class OlaphSlashCommandReceiverUnitTests : SlashCommandTest {
 
         val slackCommand = SlackCommand.sample().copy(channelId = "SampleChannelId", userId = "SampleUserId", teamId = "")
         receiver.onReceiveSlashCommand(slackCommand, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
 
         verify(service, times(1)).sendInfoMessage(slackCommand, "")

@@ -62,7 +62,6 @@ class SkipSubmissionReceiverTest : InteractiveComponentReceiverTest {
                 team = InteractiveComponentResponse.Team.sample().copy("sampleTeam"),
                 user = User.sample().copy("sampleUser")
         ), HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(standupOpeningService, times(1)).openStandup("sampleUser", "sampleTeam")
         Assertions.assertEquals(slackClient.chat().delete("").params(), expectedParam)

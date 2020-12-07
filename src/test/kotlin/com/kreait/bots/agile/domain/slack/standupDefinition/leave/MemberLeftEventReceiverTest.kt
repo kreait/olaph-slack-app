@@ -77,7 +77,6 @@ class MemberLeftEventReceiverTest : SlackEventTest {
                 Pair("channel", "testChannel"),
                 Pair("team", "testTeam")))
         receiver.onReceiveEvent(slackEvent = event, headers = HttpHeaders.EMPTY, team = com.kreait.slack.broker.store.team.Team("testTeam", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
 
         verify(messageSender, times(0)).sendCancelOpenStandupMessage(event.event["user"].toString(),

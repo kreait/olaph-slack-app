@@ -35,7 +35,6 @@ class DeleteDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
         val handler = mock<DeleteDialogSubmissionHandler>()
         val deleteDialogSubmissionReceiver = DeleteDialogSubmissionReceiver(handler)
         deleteDialogSubmissionReceiver.onReceiveInteractiveMessage(component, HttpHeaders.EMPTY, com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
         verify(handler, times(1)).handleDeleteDialogSubmission(component, "")
     }

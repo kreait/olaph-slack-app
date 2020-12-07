@@ -36,7 +36,6 @@ class SlackQuestionSenderTest {
         slackClient.chat().postMessage("sampleToken").successResponse = SuccessfulPostMessageResponse.sample()
         val slackQuestionSender = SlackQuestionSender(slackClient, userChannelIdService, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
         val expected = PostMessageRequest("Test Question", channel = "sampleChannel")
@@ -50,7 +49,6 @@ class SlackQuestionSenderTest {
         slackClient.chat().postMessage("sampleToken").failureResponse = ErrorPostMessageResponse.sample()
         val slackQuestionSender = SlackQuestionSender(slackClient, userChannelIdService, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
         slackQuestionSender.sendQuestion("sampleUser", "Test Question", "sampleTeam")

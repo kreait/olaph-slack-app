@@ -34,13 +34,11 @@ class TriggerStandupTest : SlashCommandTest {
         val service = SlackTriggerCommandReceiver(mockService)
         val command = SlackCommand.sample().copy(command = "/trigger-standup")
         service.onReceiveSlashCommand(command, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(mockService, times(1)).openDialog(command, "")
 
         val olaphTrigger = command.copy(command = "/olaph", text = "trigger")
         service.onReceiveSlashCommand(olaphTrigger, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(mockService, times(1)).openDialog(olaphTrigger, "")
     }

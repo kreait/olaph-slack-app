@@ -43,7 +43,6 @@ class SlackSkipCommandReceiverTest : SlashCommandTest {
 
         val slackSkipCommandReceiver = SlackSkipCommandReceiver(standupRepository, skipMessageSender, standupOpeningService)
         slackSkipCommandReceiver.onReceiveSlashCommand(slashCommand, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
 
         verify(skipMessageSender, times(1)).sendSuccesfulSkipMessage(slashCommand, standup.name, "")
@@ -62,7 +61,6 @@ class SlackSkipCommandReceiverTest : SlashCommandTest {
 
         val slackSkipCommandReceiver = SlackSkipCommandReceiver(standupRepository, skipMessageSender, mock())
         slackSkipCommandReceiver.onReceiveSlashCommand(slashCommand, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
 
         verify(skipMessageSender, times(1)).sendNoStandupsFoundMessage(slashCommand, "")

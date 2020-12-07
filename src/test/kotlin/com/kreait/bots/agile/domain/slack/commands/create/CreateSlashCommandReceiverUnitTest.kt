@@ -25,7 +25,6 @@ class CreateSlashCommandReceiverUnitTest : SlashCommandTest {
         val receiver = CreateSlashCommandReceiver(service, mock { })
         val slackCommand = SlackCommand.sample().copy(triggerId = "SampleTriggerId", userId = "SampleUserId", teamId = "")
         receiver.onReceiveSlashCommand(slackCommand, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
 
         verify(service, times(1)).openCreationDialog(slackCommand.triggerId, slackCommand.userId, slackCommand.teamId)

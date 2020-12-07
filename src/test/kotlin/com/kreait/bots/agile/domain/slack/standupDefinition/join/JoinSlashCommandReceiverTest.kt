@@ -35,7 +35,6 @@ class JoinSlashCommandReceiverTest : SlashCommandTest {
         joinSlashCommandReceiver.onReceiveSlashCommand(
             SlackCommand.sample(), HttpHeaders.EMPTY, team = Team(
                 "", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")
             )
         )

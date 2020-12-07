@@ -44,7 +44,6 @@ class EditSlashCommandReceiverUnitTest : SlashCommandTest {
         )
 
         receiver.onReceiveSlashCommand(slackCommand, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(service, times(1)).postSelectStandupQuestion(slackCommand, "")
     }

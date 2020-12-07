@@ -9,7 +9,6 @@ import java.time.Instant
 @Document(collection = SlackTeam.COLLECTION_NAME)
 data class SlackTeam(@Id @Field(TEAM_ID) val teamId: String,
                      @Field(TEAM_NAME) val teamName: String,
-                     @Field(INCOMING_WEBHOOK) val incomingWebhook: IncomingWebhook,
                      @Field(BOT) val bot: Bot,
                      @Field(STATUS) var status: Status = Status.ACTIVE,
                      @Field(INSTALLED_AT) var installedAt: Instant?) {
@@ -18,19 +17,10 @@ data class SlackTeam(@Id @Field(TEAM_ID) val teamId: String,
             @Field(BOT_ACCESS_TOKEN) val accessToken: String
     )
 
-    data class IncomingWebhook(
-            @Field(CHANNEL) val channel: String,
-            @Field(CHANNEL_ID) val channelId: String,
-            @Field(CONFIGURATION_URL) val configurationUrl: String,
-            @Field(URL) val url: String
-    )
-
     companion object {
         fun of(oauthResponse: SuccessfullAccessResponse): SlackTeam {
-            return SlackTeam(teamId = oauthResponse.teamId, teamName = oauthResponse.teamName,
-                    incomingWebhook = IncomingWebhook(channel = oauthResponse.incomingWebhook.channel,
-                            channelId = oauthResponse.incomingWebhook.channelId, configurationUrl = oauthResponse.incomingWebhook.configurationUrl, url = oauthResponse.incomingWebhook.url),
-                    bot = Bot(userId = oauthResponse.bot.botUserId, accessToken = oauthResponse.bot.botAccessToken), status = Status.ACTIVE, installedAt = Instant.now())
+            return SlackTeam(teamId = oauthResponse.team.id, teamName = oauthResponse.team.name!!,
+                    bot = Bot(userId = oauthResponse.botUserId, accessToken = oauthResponse.accessToken), status = Status.ACTIVE, installedAt = Instant.now())
         }
 
         const val COLLECTION_NAME = "slackteams"

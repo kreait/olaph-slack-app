@@ -59,7 +59,6 @@ class MemberJoinedChannelReceiverTest : SlackEventTest {
         ))
         val memberJoinedChannelReceiver = MemberJoinedChannelReceiver(standupDefinitionRepository, messageSender)
         memberJoinedChannelReceiver.onReceiveEvent(event, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
     }
 }

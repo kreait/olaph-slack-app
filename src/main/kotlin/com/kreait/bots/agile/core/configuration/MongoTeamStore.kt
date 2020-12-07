@@ -22,10 +22,6 @@ class MongoTeamStore @Autowired constructor(private val template: MongoTemplate)
             val slackTeam = template.findById(id, SlackTeam::class.java)
                     ?: throw TeamNotFoundException("team $id not found")
             val team = Team(slackTeam.teamId, slackTeam.teamName,
-                    Team.IncomingWebhook(slackTeam.incomingWebhook.channel,
-                            slackTeam.incomingWebhook.channelId,
-                            slackTeam.incomingWebhook.configurationUrl,
-                            slackTeam.incomingWebhook.url),
                     Team.Bot(slackTeam.bot.userId,
                             slackTeam.bot.accessToken))
             cache.put(slackTeam.teamId, team)
@@ -35,13 +31,7 @@ class MongoTeamStore @Autowired constructor(private val template: MongoTemplate)
 
     override fun put(team: Team) {
         template.save(SlackTeam(team.teamId,
-                team.teamName,
-                SlackTeam.IncomingWebhook(
-                        team.incomingWebhook!!.channel,
-                        team.incomingWebhook!!.channelId,
-                        team.incomingWebhook!!.configurationUrl,
-                        team.incomingWebhook!!.url
-                ),
+                team.teamName!!,
                 SlackTeam.Bot(
                         team.bot.userId,
                         team.bot.accessToken

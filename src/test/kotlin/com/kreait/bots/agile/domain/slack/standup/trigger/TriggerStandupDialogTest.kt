@@ -9,13 +9,7 @@ import com.kreait.slack.api.contract.jackson.SlackCommand
 import com.kreait.slack.api.contract.jackson.group.chat.PostEphemeralRequest
 import com.kreait.slack.api.contract.jackson.group.chat.SuccessfulPostEphemeralResponse
 import com.kreait.slack.api.contract.jackson.group.chat.sample
-import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
-import com.kreait.slack.api.contract.jackson.group.dialog.Options
-import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
-import com.kreait.slack.api.contract.jackson.group.dialog.SuccessfulOpenDialogResponse
-import com.kreait.slack.api.contract.jackson.group.dialog.Type
-import com.kreait.slack.api.contract.jackson.group.dialog.sample
+import com.kreait.slack.api.contract.jackson.group.dialog.*
 import com.kreait.slack.api.contract.jackson.sample
 import com.kreait.slack.api.test.MockSlackClient
 import com.nhaarman.mockitokotlin2.mock
@@ -73,7 +67,7 @@ class TriggerStandupDialogTest @Autowired constructor(private val standupReposit
         triggerStandupDialog = TriggerStandupDialog(slackClient, standupRepository, mock())
         triggerStandupDialog.openDialog(command, "")
 
-        val expectedParam = SlackOpenDialogRequest(trigger_id = command.triggerId,
+        val expectedParam = OpenDialogRequest(trigger_id = command.triggerId,
                 dialog = Dialog(
                         callback_id = TriggerStandupDialog.CALLBACK_ID,
                         title = "Trigger a Stand-up",

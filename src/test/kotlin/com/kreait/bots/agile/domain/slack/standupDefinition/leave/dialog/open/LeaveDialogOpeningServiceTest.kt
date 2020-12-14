@@ -11,7 +11,7 @@ import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
 import com.kreait.slack.api.contract.jackson.group.dialog.Element
 import com.kreait.slack.api.contract.jackson.group.dialog.Options
 import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
+import com.kreait.slack.api.contract.jackson.group.dialog.OpenDialogRequest
 import com.kreait.slack.api.contract.jackson.group.dialog.SuccessfulOpenDialogResponse
 import com.kreait.slack.api.contract.jackson.group.dialog.Type
 import org.junit.jupiter.api.Assertions
@@ -36,7 +36,7 @@ class LeaveDialogOpeningServiceTest {
 
         val options = listOf(Options("label", "value"))
         leaveDialogOpeningService.openStandupLeaveDialog(options, "trigger_id", "user_id", "team_id")
-        val expectedParam = SlackOpenDialogRequest(
+        val expectedParam = OpenDialogRequest(
                 Dialog(
                         callback_id = Callback.LEAVE_DIALOG.id,
                         title = message.getMessage("titleLeave", Locale.ENGLISH),

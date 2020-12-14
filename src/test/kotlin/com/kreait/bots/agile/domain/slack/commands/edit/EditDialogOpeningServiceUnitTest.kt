@@ -14,7 +14,7 @@ import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
 import com.kreait.slack.api.contract.jackson.group.dialog.ErrorOpenDialogResponse
 import com.kreait.slack.api.contract.jackson.group.dialog.MetaData
 import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
+import com.kreait.slack.api.contract.jackson.group.dialog.OpenDialogRequest
 import com.kreait.slack.api.contract.jackson.group.dialog.SuccessfulOpenDialogResponse
 import com.kreait.slack.api.contract.jackson.group.dialog.TextAreaElement
 import com.kreait.slack.api.contract.jackson.group.dialog.TextElement
@@ -46,7 +46,7 @@ class EditDialogOpeningServiceUnitTest {
         val standupDefinitionId = "sampleStandupDefinition"
         service.openEditDialog(triggerId, userId, teamId, standupDefinitionId, "")
 
-        val expectedParam = SlackOpenDialogRequest(
+        val expectedParam = OpenDialogRequest(
                 dialog = Dialog(
                         callback_id = "EDIT_DIALOG",
                         title = "Workspace",

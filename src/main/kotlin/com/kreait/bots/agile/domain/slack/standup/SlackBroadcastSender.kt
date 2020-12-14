@@ -52,14 +52,14 @@ class SlackBroadcastSender @Autowired constructor(private val slackClient: Slack
 
         this.slackClient.chat()
                 .postMessage(token)
-                .with(PostMessageRequest(attachments = attachments, channel = broadcastChannelId, username = realName, iconUrl = userInfo.profile.image192, text = ""))
+                .with(PostMessageRequest(attachments = attachments, channel = broadcastChannelId, username = realName, iconUrl = userInfo.profile.image192, text = "",asUser = true))
                 .onSuccess {
                     when {
                         LOG.isDebugEnabled -> LOG.debug("Successfully sent broadcast message")
                     }
                 }
                 .onFailure {
-                    LOG.error("Error while sending broadcast message")
+                    LOG.error("Error while sending broadcast message {}",it.error)
                 }
                 .invoke().success
     }

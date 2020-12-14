@@ -56,7 +56,7 @@ class RandomResponseIntegrationTest(@Value("\${authentication.key}") private val
         val authKeyEncoded = Base64.encodeBase64String(this.authKey.toByteArray())
         RestAssured.given()
                 .header(HttpHeaders.AUTHORIZATION,authKeyEncoded)
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .body(AddRandomResponsesRequest(listOf(newResponse)))
                 .put("http://localhost:$port/random-answers/UnknownMessageResponses")
                 .then()
@@ -72,7 +72,7 @@ class RandomResponseIntegrationTest(@Value("\${authentication.key}") private val
         // @formatter:off
         RestAssured.given()
                 .header(HttpHeaders.AUTHORIZATION,"wrongKey")
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .body(AddRandomResponsesRequest(listOf()))
                 .put("http://localhost:$port/random-answers/UnknownMessageResponses")
                 .then()

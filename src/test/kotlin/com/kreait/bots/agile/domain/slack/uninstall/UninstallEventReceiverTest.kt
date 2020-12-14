@@ -42,7 +42,6 @@ class UninstallEventReceiverTest @Autowired constructor(private val slackTeamRep
     @Test
     override fun onReceiveEvent() {
         slackTeamRepository.save(SlackTeam("teamId", "name",
-                SlackTeam.IncomingWebhook("", "", "", ""),
                 SlackTeam.Bot("", ""),
                 SlackTeam.Status.ACTIVE,
                 Instant.now()))
@@ -50,7 +49,6 @@ class UninstallEventReceiverTest @Autowired constructor(private val slackTeamRep
         standupRepository.insert(Standup.sample().copy(teamId = "teamId"))
         val uninstallEventReceiver = UninstallEventReceiver(standupDefinitionRepository, standupRepository, slackTeamRepository)
         uninstallEventReceiver.onReceiveEvent(SlackEvent.sample().copy(event = mapOf(Pair("type", "app_uninstalled")), teamId = "teamId"), HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         Assertions.assertEquals(standupDefinitionRepository.findAllActive("teamId").size, 0)
         Assertions.assertEquals(slackTeamRepository.find("teamId")!!.status, SlackTeam.Status.ARCHIVED)

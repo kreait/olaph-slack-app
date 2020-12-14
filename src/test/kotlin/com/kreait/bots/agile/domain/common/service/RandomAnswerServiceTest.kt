@@ -24,7 +24,6 @@ class RandomAnswerServiceTest {
         messageSender = mock {}
         randomAnswerService = RandomAnswerService(messageSender, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
     }

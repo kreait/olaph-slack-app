@@ -32,7 +32,6 @@ class CreateDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
         val createDialogSubmissionReceiver = CreateDialogSubmissionReceiver(createDialogSubmissionHandler)
 
         val team = com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", ""))
         val component = InteractiveMessage.sample().copy(
                 submission = mapOf(
@@ -43,7 +42,6 @@ class CreateDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
                         Pair(CreateDialogSubmission.QUESTIONS, "test")),
                 callbackId = Callback.CREATION_DIALOG.id)
         createDialogSubmissionReceiver.onReceiveInteractiveMessage(component, HttpHeaders.EMPTY, com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
         verify(createDialogSubmissionHandler, times(1)).handleCreateDialogSubmission(
                 CreateDialogSubmission.of(component.submission!!), component, team)

@@ -5,12 +5,12 @@ import com.kreait.bots.agile.core.standupdefinition.sample
 import com.kreait.bots.agile.domain.common.data.StandupDefinition
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.MemberLeftMessageSender
 import com.kreait.slack.api.contract.jackson.common.messaging.Attachment
-import com.kreait.slack.api.contract.jackson.group.channels.SuccessfulChannelInfoResponse
-import com.kreait.slack.api.contract.jackson.group.channels.sample
 import com.kreait.slack.api.contract.jackson.group.chat.ErrorPostMessageResponse
 import com.kreait.slack.api.contract.jackson.group.chat.PostMessageRequest
 import com.kreait.slack.api.contract.jackson.group.chat.SuccessfulPostMessageResponse
 import com.kreait.slack.api.contract.jackson.group.chat.sample
+import com.kreait.slack.api.contract.jackson.group.conversations.SuccessfulConversationsInfoResponse
+import com.kreait.slack.api.contract.jackson.group.conversations.sample
 import com.kreait.slack.api.test.MockSlackClient
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
@@ -54,7 +54,7 @@ class MemberLeftMessageSenderUnitTests {
 
         mockSlackClient.chat().postMessage("").successResponse = SuccessfulPostMessageResponse.sample()
 
-        mockSlackClient.channel().info("").successResponse = SuccessfulChannelInfoResponse.sample()
+        mockSlackClient.conversation().info("").successResponse = SuccessfulConversationsInfoResponse.sample()
 
         val service = MemberLeftMessageSender(
                 userChannelIdService = mock { on { fetchChannelIdByUserId(any(), any()) } doReturn channelId },
@@ -100,7 +100,7 @@ class MemberLeftMessageSenderUnitTests {
     fun failureSendChannelLeftMessage() {
         val mockSlackClient = MockSlackClient()
 
-        mockSlackClient.channel().info("").successResponse = SuccessfulChannelInfoResponse.sample()
+        mockSlackClient.conversation().info("").successResponse = SuccessfulConversationsInfoResponse.sample()
 
         val service = MemberLeftMessageSender(
                 userChannelIdService = mock { on { fetchChannelIdByUserId(any(), any()) } doReturn channelId },

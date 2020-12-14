@@ -48,7 +48,6 @@ class SelectStandupReceiverTest : InteractiveComponentReceiverTest {
                 user = User.sample().copy("sampleUser"),
                 callbackId = Callback.EDIT_STANDUP_SELECTED.id)
         selectStandupReceiver.onReceiveInteractiveMessage(component, HttpHeaders.EMPTY, com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
         verify(editDialogOpeningService, times(1)).openEditDialog("sampleTrigger", "sampleUser", "sampleTeam",
                 "standupDefinitionId", "")

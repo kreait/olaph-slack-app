@@ -50,7 +50,6 @@ class SlackAnswerReceiverTest : SlackEventTest {
                         Pair("channel_type", "im")
                 ))
         receiver.onReceiveEvent(event, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(standupAnswerReceiver, times(1)).handleAnswer("sampleUser",
                 "sampleText", event.eventId, event.eventTime, event.teamId)

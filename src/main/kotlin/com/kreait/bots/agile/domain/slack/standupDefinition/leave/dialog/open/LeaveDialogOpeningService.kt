@@ -3,12 +3,7 @@ package com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.open
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.Action
 import com.kreait.bots.agile.domain.slack.standupDefinition.leave.dialog.Callback
 import com.kreait.slack.api.SlackClient
-import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
-import com.kreait.slack.api.contract.jackson.group.dialog.Element
-import com.kreait.slack.api.contract.jackson.group.dialog.Options
-import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
-import com.kreait.slack.api.contract.jackson.group.dialog.Type
+import com.kreait.slack.api.contract.jackson.group.dialog.*
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.support.MessageSourceAccessor
@@ -27,7 +22,7 @@ class LeaveDialogOpeningService @Autowired constructor(private val slackClient: 
     }
 
     fun openStandupLeaveDialog(options: List<Options>, triggerId: String, userId: String, accessToken: String) {
-        val request = SlackOpenDialogRequest(
+        val request = OpenDialogRequest(
                 Dialog(
                         callback_id = Callback.LEAVE_DIALOG.id,
                         title = message.getMessage(LEAVE_TITLE, Locale.ENGLISH),

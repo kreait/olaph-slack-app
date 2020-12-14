@@ -36,12 +36,10 @@ class ListCommandReceiverTest : SlashCommandTest {
         val olaphList = command.copy(command = "/olaph", text = "list")
 
         receiver.onReceiveSlashCommand(command, HttpHeaders.EMPTY, com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
         verify(service, times(1)).listStandups(command, "")
 
         receiver.onReceiveSlashCommand(olaphList, HttpHeaders.EMPTY, com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
         verify(service, times(1)).listStandups(olaphList, "")
     }

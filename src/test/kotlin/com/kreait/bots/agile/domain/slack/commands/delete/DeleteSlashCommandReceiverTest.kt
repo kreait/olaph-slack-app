@@ -40,20 +40,17 @@ class DeleteSlashCommandReceiverTest : SlashCommandTest {
 
         val command = SlackCommand.sample().copy(command = "/delete-standup")
         service.onReceiveSlashCommand(command, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(deleteSlashCommandHandler, times(1)).handleDeleteSlashCommand(command, "")
 
         var olaphDelete = command.copy(command = "/olaph", text = "delete")
         service.onReceiveSlashCommand(olaphDelete, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(deleteSlashCommandHandler, times(1)).handleDeleteSlashCommand(olaphDelete, "")
 
 
         val helpCommand = command.copy(text = "help")
         service.onReceiveSlashCommand(helpCommand, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(slackDeletionHelpMessageService, times(1)).sendHelpMessage(helpCommand, "")
     }

@@ -52,7 +52,6 @@ class SlackBroadcastSenderUnitTest() {
         val broadcastSender = SlackBroadcastSender(slackClient, userChannelIdService, userService,
                 message, mock(), mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
         broadcastSender.sendBroadcast("", "", "", LocalDate.now(),
@@ -67,7 +66,6 @@ class SlackBroadcastSenderUnitTest() {
             on { getRandomizedResponse(ResponseType.BROADCAST_CONFIRMATION) } doReturn ""
         }, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
 
@@ -82,7 +80,6 @@ class SlackBroadcastSenderUnitTest() {
             on { getRandomizedResponse(ResponseType.BROADCAST_CONFIRMATION) } doReturn ""
         }, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
         Assertions.assertFalse(broadcastSender.sendBroadcastConfirmation("", ""))
@@ -96,7 +93,6 @@ class SlackBroadcastSenderUnitTest() {
         val broadcastSender = SlackBroadcastSender(slackClient, userChannelIdService, userService,
                 message, mock(), mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
         Assertions.assertFalse(broadcastSender.sendBroadcastConfirmation("", ""))
@@ -109,7 +105,6 @@ class SlackBroadcastSenderUnitTest() {
         val broadcastSender = SlackBroadcastSender(slackClient, userChannelIdService, userService,
                 message, mock(), mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
         broadcastSender.sendBroadcast("", "", "", LocalDate.now(),

@@ -35,7 +35,6 @@ class ReminderMessageSenderTest {
         val standup = Standup.sample().copy(name = "newStandup")
         val reminder = ReminderMessageSender(userChannelIdService, messageSender, message, mock {
             on { findById(any()) } doReturn com.kreait.slack.broker.store.team.Team("", "",
-                    com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                     com.kreait.slack.broker.store.team.Team.Bot("", ""))
         })
         reminder.sendReminderMessage(standup, openStandup)

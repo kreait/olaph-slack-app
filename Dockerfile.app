@@ -6,6 +6,4 @@ COPY ["build/libs/*.jar","/app/application.jar"]
 
 WORKDIR /app
 
-EXPOSE 8080
-
-CMD ["sh","-c","java -XX:MaxRAMPercentage=90 -jar application.jar"]
+CMD ["sh","-c","java -XX:MaxRAMPercentage=90 -jar -Dserver.port=$PORT $JAVA_OPTS application.jar"]

@@ -35,7 +35,6 @@ class LeaveCommandSubmissionReceiverTest : InteractiveComponentReceiverTest {
         val leaveCommandSubmissionReceiver = LeaveCommandSubmissionReceiver(leaveCommandSubmissionHandler)
         val component = InteractiveMessage.sample()
         leaveCommandSubmissionReceiver.onReceiveInteractiveMessage(component, HttpHeaders.EMPTY, com.kreait.slack.broker.store.team.Team("", "",
-                com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                 com.kreait.slack.broker.store.team.Team.Bot("", "")))
 
         verify(leaveCommandSubmissionHandler, times(1)).handleSubmission(component, "")

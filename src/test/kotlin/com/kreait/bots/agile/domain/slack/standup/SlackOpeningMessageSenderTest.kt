@@ -45,7 +45,6 @@ class SlackOpeningMessageSenderTest {
         slackClient.chat().postMessage("sampleToken").successResponse = SuccessfulPostMessageResponse.sample()
         val slackOpeningMessageSender = SlackOpeningMessageSender(slackClient, userChannelIdService, randomResponseProvider, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
 
@@ -64,7 +63,6 @@ class SlackOpeningMessageSenderTest {
 
         val slackOpeningMessageSender = SlackOpeningMessageSender(slackClient, userChannelIdService, randomResponseProvider, mock {
             on { findById(any()) } doReturn Team("", "",
-                    Team.IncomingWebhook("", "", "", ""),
                     Team.Bot("", ""))
         })
 

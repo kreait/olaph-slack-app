@@ -61,7 +61,6 @@ class CreateDialogSubmissionHandlerTest {
 
         dialogSubmissionHandler.handleCreateDialogSubmission(CreateDialogSubmission.of(component.submission!!), component,
                 com.kreait.slack.broker.store.team.Team("", "",
-                        com.kreait.slack.broker.store.team.Team.IncomingWebhook("", "", "", ""),
                         com.kreait.slack.broker.store.team.Team.Bot("", "")))
         verify(messageSender, times(1)).sendEphemeralMessage(ResponseType.CREATION_SUCCESS,
                 listOf(Attachment(title = "Workspace", fallback = "Standup defined :)", color = Color.GOOD)),

@@ -35,7 +35,6 @@ class EditDialogSubmissionReceiverTest : InteractiveComponentReceiverTest {
                 Pair(CreateDialogSubmission.BROADCAST_CHANNEL_ID, "channel"),
                 Pair(CreateDialogSubmission.QUESTIONS, "what")))
         editDialogSubmissionReceiver.onReceiveInteractiveMessage(interactiveComponentResponse, HttpHeaders.EMPTY, Team("", "",
-                Team.IncomingWebhook("", "", "", ""),
                 Team.Bot("", "")))
         verify(editDialogSubmissionHandler, times(1)).handleEditDialogSubmission(
                 CreateDialogSubmission.of(interactiveComponentResponse.submission!!), interactiveComponentResponse, "")

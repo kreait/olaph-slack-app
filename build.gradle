@@ -6,7 +6,7 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.0.RELEASE")
     }
     ext {
-        olaphVersion = "3.0.0--SNAPSHOT"
+        olaphVersion = "3.0.0-SNAPSHOT"
         springBootVersion = "2.3.0.RELEASE"
         projectVersion = "1.0.0"
         kotlinVersion = "1.4.20"
@@ -105,7 +105,9 @@ tasks.register("integrationTest", Test) {
 
 repositories {
     mavenCentral()
-    mavenLocal()
+    maven {
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
 }
 
 dependencies {

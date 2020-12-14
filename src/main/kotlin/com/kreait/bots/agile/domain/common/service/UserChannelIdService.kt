@@ -4,7 +4,6 @@ import com.kreait.bots.agile.domain.common.data.Standup
 import com.kreait.bots.agile.domain.common.data.StandupRepository
 import com.kreait.slack.api.SlackClient
 import com.kreait.slack.api.contract.jackson.group.conversations.ConversationsOpenRequest
-import com.kreait.slack.api.contract.jackson.group.im.ImOpenRequest
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.mongodb.core.query.Update

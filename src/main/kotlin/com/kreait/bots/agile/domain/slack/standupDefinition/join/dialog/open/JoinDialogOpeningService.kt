@@ -7,7 +7,7 @@ import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
 import com.kreait.slack.api.contract.jackson.group.dialog.Element
 import com.kreait.slack.api.contract.jackson.group.dialog.Options
 import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
+import com.kreait.slack.api.contract.jackson.group.dialog.OpenDialogRequest
 import com.kreait.slack.api.contract.jackson.group.dialog.Type
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -33,7 +33,7 @@ class JoinDialogOpeningService @Autowired constructor(private val slackClient: S
      */
 
     fun openStandupJoinDialog(options: List<Options>, triggerId: String, userId: String, accessToken: String) {
-        val request = SlackOpenDialogRequest(Dialog(
+        val request = OpenDialogRequest(Dialog(
                 callback_id = Callback.JOIN_DIALOG.id,
                 title = message.getMessage(JOIN_TITLE, Locale.ENGLISH),
                 elements = listOf<Element>(SelectElement(

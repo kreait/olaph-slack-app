@@ -5,12 +5,7 @@ import com.kreait.bots.agile.domain.slack.standupDefinition.DialogOptionService
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.Callback
 import com.kreait.bots.agile.domain.slack.standupDefinition.create.dialog.dto.CreateDialogSubmission
 import com.kreait.slack.api.SlackClient
-import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
-import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
-import com.kreait.slack.api.contract.jackson.group.dialog.TextAreaElement
-import com.kreait.slack.api.contract.jackson.group.dialog.TextElement
-import com.kreait.slack.api.contract.jackson.group.dialog.Type
+import com.kreait.slack.api.contract.jackson.group.dialog.*
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.support.MessageSourceAccessor
@@ -45,7 +40,7 @@ class CreateDialogOpeningService @Autowired constructor(private val slackClient:
     fun openCreationDialog(triggerId: String, userId: String, accessToken: String) {
 
         val userLocale = Locale.ENGLISH
-        val openDialogRequest = SlackOpenDialogRequest(
+        val openDialogRequest = OpenDialogRequest(
                 trigger_id = triggerId,
                 dialog = Dialog(
                         callback_id = Callback.CREATION_DIALOG.id,

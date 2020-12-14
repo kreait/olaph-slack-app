@@ -7,7 +7,7 @@ import com.kreait.bots.agile.domain.slack.standupDefinition.edit.Callback
 import com.kreait.slack.api.SlackClient
 import com.kreait.slack.api.contract.jackson.group.dialog.Dialog
 import com.kreait.slack.api.contract.jackson.group.dialog.SelectElement
-import com.kreait.slack.api.contract.jackson.group.dialog.SlackOpenDialogRequest
+import com.kreait.slack.api.contract.jackson.group.dialog.OpenDialogRequest
 import com.kreait.slack.api.contract.jackson.group.dialog.TextAreaElement
 import com.kreait.slack.api.contract.jackson.group.dialog.TextElement
 import com.kreait.slack.api.contract.jackson.group.dialog.Type
@@ -55,7 +55,7 @@ class EditDialogOpeningService @Autowired constructor(private val slackClient: S
             standupDefinition.offset.div(60).div(60).toString()
         }
 
-        val req = SlackOpenDialogRequest(
+        val req = OpenDialogRequest(
                 trigger_id = triggerId,
                 dialog = Dialog(
                         state = standupDefinitionId,
